@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #e6f2ff ;
+    color: rgba(0, 0, 0, 0.801);
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body .btn{
+    border-radius: 10px;
+}
