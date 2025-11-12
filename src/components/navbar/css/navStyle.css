@@ -8,28 +8,45 @@
 
 nav {
     background-color: white;
-    padding-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.nav-tabs .nav-link.active {
+.nav-link.active {
     background-color: #0d6efd;
     border-radius: 3;
     color: white; 
     border-color: #0d6efd #0d6efd #fff;
 }
 
-.nav-tabs .nav-link:hover {
+.nav-link:hover {
     background-color: #ffff;
     transform: scale(1.1);
     color: black;
 }
 
+.page-info >*, .profile-info>*{
+    padding: 0;
+    margin: 0;
+}
 
-.more-options .btn {
-    background-color: rgba(255, 255, 255, 0.2);
+.page-info p, .profile-info p{
+    font-size: 12px;
+    color: gray;
 }
 
 .close:hover{
     background-color: white;
     color: black;
+}
+.divider {
+  width: 1px;
+  background-color: #cfcfcf;
+  margin: 4px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.exit:hover{
+    background-color: red;
+    color: white;
 }

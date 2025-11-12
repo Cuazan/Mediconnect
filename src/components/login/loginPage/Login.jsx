@@ -1,28 +1,56 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import logo from '../../../assets/mediconnect-logo.png'
 import '../css/LoginStyle.css'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
+import { UserLogin } from '../../../requester/Requester';
+import { Medics } from '../loginComponents/Medics';
 
 export function Login() {
-    const[email, setEmail] = useState('');
-    const[password, setPassword] = useState('');
-   
+    const { setAuth } = useAuth();
+
+    const userRef = useRef();
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const navigation = useNavigate();
-    const login = ()  =>{
-        navigation('/', {replace:true})
-    }
+    const location = useLocation();
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
     }
 
-    const handlePassword = (e) =>{
+    const handlePassword = (e) => {
         setPassword(e.target.value)
     }
-    const handleSubmit = () =>{
+
+
+    useEffect(() => {
+        userRef.current.focus();
+    }, [])
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        let userCredentials = {
-            email, password
+        try {
+            const response = await UserLogin({ email, password });
+            const token = response.token
+            const role = response.user.role
+            setAuth({ user: response.user, roles: [role], token: [token] })
+            setEmail('')
+            setPassword('')
+            if (role === "Doctor") {
+                navigation("/doctorHomePage", { replace: true });
+            } else if (role === "Patient") {
+                navigation("/home", { replace: true });
+            } else {
+                navigation("/", { replace: true });
+            }
+            console.log(response)
+            console.log(response.user)
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -36,29 +64,26 @@ export function Login() {
                             <h2>Sistema Integral de Citas Médicas y Teleconsulta</h2>
                             <div className="line"></div>
                         </div>
-
                         <div className="card">
                             <div className="card-header">
                                 <h1 >Iniciar Sesión</h1>
                             </div>
                             <div className="card-body">
-                                <form className='form' onSubmit={handleSubmit}>
+                                <form className='form' onSubmit={handleSubmit} >
                                     <div className="mb-3 mt-3">
                                         <label htmlFor="email" className="form-label" >Email:</label>
-                                        <input type="email" className="form-control" onChange={handleEmail} id="email" placeholder="tu@email.com" name="email" />
+                                        <input type="email" value={email} required className="form-control" onChange={handleEmail} ref={userRef} id="email" placeholder="tu@email.com" name="email" autoComplete='off' />
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="pwd" className="form-label">Contraseña:</label>
-                                        <input type="password" className="form-control" onChange={handlePassword} id="pwd" placeholder="Ingrese contraseña" name="pswd" />
+                                        <input type="password" required value={password} className="form-control" onChange={handlePassword} id="pwd" placeholder="Ingrese contraseña" name="pswd" />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="dropdown" className="form-label">Tipo de Usuario:</label>
-                                        <select className="form-select" id='dropdown'>
-                                            <option>Medico</option>
-                                            <option>Paciente</option>
-                                        </select>
+                                        <label className="form-label">Nuestros Doctores:</label>
+                                        <Medics />
+
                                     </div>
-                                    <button type="submit" className="btn btn-primary w-100" onClick={login}>Iniciar Sesión</button>
+                                    <button type="submit" className="btn btn-primary w-100">Iniciar Sesión</button>
                                 </form>
                             </div>
                             <div className="card-footer">

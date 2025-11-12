@@ -1,1 +1,2 @@
-export *  from './navbar/Navbar'
+export * from './doctorNavbar/DoctorNavbar'
+export * from './patientNavbar/Navbar'

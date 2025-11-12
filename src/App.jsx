@@ -1,5 +1,5 @@
 import './App.css'
-import { PublicRouter } from './router/PublicRouter'
+import { Router } from './router/Router'
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <PublicRouter></PublicRouter>
+    <Router/>
     </>
   )
 }

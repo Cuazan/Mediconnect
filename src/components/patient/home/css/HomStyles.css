@@ -1,0 +1,29 @@
+.info-appointment, .medical-data {
+    transition: transform 0.3s ease;
+    background-color: #e6f2ff56;
+}
+
+.medical-data {
+    background: #b5fff04f;
+}
+
+.reminders {
+    background: linear-gradient(90deg, #e6f2ff, #de55faad);
+
+}
+
+.reminder {
+    background: #faf5ff;
+    border-left: 6px solid #9b5bff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+}
+
+.card-header{
+    font-size: 20px ;
+}
+
+.info-appointment:hover, .medical-data:hover{
+    transform: scale(1.03);
+}
