@@ -1,10 +1,14 @@
+import { DoctorComingAppointments } from "../homeComponents/DoctorCommingAppointments";
+import '../css/DoctorHomeStyles.css'
 
 
 export function DoctorHomePage(){
 
     return(
         <>
-        ola
+        <div className="container border border-primary vh-100">
+            <DoctorComingAppointments/>
+        </div>
         </>
     )
 }

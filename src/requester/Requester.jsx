@@ -6,15 +6,6 @@ const axiosInstance = axios.create({
     timeout: 5000
 });
 
-export const axiosPrivateInstance = axios.create({
-    baseURL: BASE_URL,
-    timeout: 5000,
-    headers: {
-        'Content Tyoe': 'application/json',
-        withCredentials: true
-    }
-});
-
 export async function UserLogin({ email, password }) {
     try {
         const response = await axiosInstance.post('/api/Auth/login', { email, password },
@@ -34,10 +25,74 @@ export async function UserLogin({ email, password }) {
 }
 
 export async function GetMedics() {
-     try {
-        const response = await axiosInstance.get('/api/Doctors');
+    try {
+        const response = await axiosInstance.get('/api/Doctors',
+            {
+                headers: {
+                    'X-User-Id': 1,
+                    'X-User-Role': 'Admin'
+                }
+            }
+
+        );
         return response.data
-        
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export async function GetAppointment() {
+    try {
+        const response = await axiosInstance.get('/api/Appointments',
+            {
+                headers: {
+                    'X-User-Id': 1,
+                    'X-User-Role': 'Admin'
+                }
+            }
+        );
+        return response.data
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function PostAppointment(appointmentInfo) {
+    try {
+        const response = await axiosInstance.post('/api/Appointments',
+           appointmentInfo,
+            {
+                headers: {
+                    'X-User-Id': 1,
+                    'X-User-Role': 'Admin'
+                },
+
+            },
+        );
+        return response.data
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export async function GetPatients() {
+    try {
+        const response = await axiosInstance.get('/api/Patients',
+            {
+                headers: {
+                    'X-User-Id': 1,
+                    'X-User-Role': 'Admin'
+                }
+            }
+
+        );
+        return response.data
+
     } catch (error) {
         console.log(error)
     }

@@ -4,7 +4,7 @@ import { GetMedics } from "../../../requester/Requester"
 
 export function Medics(){
 
-    const [medics, setMedics] = useState({});
+    const [medics, setMedics] = useState([]);
 
     const getMedics = async () => {
         try {
@@ -20,11 +20,12 @@ export function Medics(){
 
     }, [])
 
+    console.log(medics)
+
     
 
     return(
         <>
-        
         </>
     )
 }

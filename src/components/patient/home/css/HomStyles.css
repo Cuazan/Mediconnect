@@ -1,4 +1,5 @@
-.info-appointment, .medical-data {
+.info-appointment,
+.medical-data {
     transition: transform 0.3s ease;
     background-color: #e6f2ff56;
 }
@@ -20,10 +21,12 @@
     margin-bottom: 12px;
 }
 
-.card-header{
-    font-size: 20px ;
+.card-header {
+    font-size: 20px;
 }
 
-.info-appointment:hover, .medical-data:hover{
-    transform: scale(1.03);
+.info-appointment:hover,
+.medical-data:hover {
+    /*transform: scale(1.03);*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }

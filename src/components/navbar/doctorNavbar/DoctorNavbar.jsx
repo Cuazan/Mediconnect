@@ -14,31 +14,25 @@ export function DoctorNavbar() {
     return (
             <>
                 <nav className="p-2" >
-                    {console.log(auth)}
                     <div className="container p-0 align-items-center d-flex justify-content-between">
                         <div className="page-info">
                             <h5>Mediconnect</h5>
-                            <p>Portal del paciente</p>
+                            <p>Portal del Médico</p>
                         </div>
                         <div>
                             <ul className="nav nav-pills">
                                 <li className="nav-item">
-                                    <NavLink to="/home" end className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                                    <NavLink to="/doctorHomePage" end className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
                                         Inicio
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink to="/appointments" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                                        Citas
+                                    <NavLink to="/doctorAppointments" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                                        Añadir Cita
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink to="/history" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                                        Historial
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink to="/profile" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+                                    <NavLink to="/doctorProfile" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
                                         Perfil
                                     </NavLink>
                                 </li>

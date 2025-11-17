@@ -1,6 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom"
 import '../css/navStyle.css'
-import test from "../../../assets/mediconnect-logo.png"
 import useAuth from "../../../hooks/useAuth";
 
 export function NavBar() {
@@ -15,7 +14,6 @@ export function NavBar() {
     return (
         <>
             <nav className="p-2" >
-                {console.log(auth)}
                 <div className="container p-0 align-items-center d-flex justify-content-between">
                     <div className="page-info">
                         <h5>Mediconnect</h5>
@@ -31,11 +29,6 @@ export function NavBar() {
                             <li className="nav-item">
                                 <NavLink to="/appointments" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
                                     Citas
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="/history" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
-                                    Historial
                                 </NavLink>
                             </li>
                             <li className="nav-item">

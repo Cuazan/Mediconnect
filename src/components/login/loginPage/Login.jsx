@@ -35,9 +35,8 @@ export function Login() {
         e.preventDefault();
         try {
             const response = await UserLogin({ email, password });
-            const token = response.token
             const role = response.user.role
-            setAuth({ user: response.user, roles: [role], token: [token] })
+            setAuth({ user: response.user, roles: [role]})
             setEmail('')
             setPassword('')
             if (role === "Doctor") {
@@ -47,8 +46,6 @@ export function Login() {
             } else {
                 navigation("/", { replace: true });
             }
-            console.log(response)
-            console.log(response.user)
         } catch (err) {
             console.log(err)
         }
@@ -80,8 +77,6 @@ export function Login() {
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label">Nuestros Doctores:</label>
-                                        <Medics />
-
                                     </div>
                                     <button type="submit" className="btn btn-primary w-100">Iniciar Sesión</button>
                                 </form>

@@ -6,6 +6,8 @@ import { Home } from "../components/patient/home";
 import { AppointmentsPage } from "../components/patient/appointments";
 import { MedicalInfo, Profile, ProfileInfo } from "../components/patient/profile";
 import { DoctorHomePage } from "../components/doctor/home";
+import { DoctorAppointments } from "../components/doctor/doctorAppointments";
+import { DoctorProfile } from "../components/doctor/doctorProfile";
 
 export const Router = () => {
 
@@ -30,6 +32,8 @@ export const Router = () => {
                     <Route element={<RequireAuth allowedRoles={["Doctor"]} />}>
                         <Route element={<DoctorLayout />}>
                             <Route path="doctorHomePage" element={<DoctorHomePage />} />
+                            <Route path="doctorAppointments" element={<DoctorAppointments />} />
+                            <Route path="doctorProfile" element={<DoctorProfile />} />
                         </Route>
                     </Route>
 
