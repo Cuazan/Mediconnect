@@ -23,6 +23,7 @@ export const Router = () => {
                             <Route path="home" element={<Home />} />
                             <Route path="appointments" element={<AppointmentsPage />} />
                             <Route path="profile" element={<Profile />}>
+                                <Route index element={<ProfileInfo />}></Route>
                                 <Route path="profileInfo" element={<ProfileInfo />} />
                                 <Route path="medicalInfo" element={<MedicalInfo />} />
                             </Route>

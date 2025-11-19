@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = ' https://mediconnectapi-aba9aqgefddremg5.centralus-01.azurewebsites.net'
+const BASE_URL = 'https://mediconnectapi-aba9aqgefddremg5.centralus-01.azurewebsites.net'
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
@@ -63,7 +63,7 @@ export async function GetAppointment() {
 export async function PostAppointment(appointmentInfo) {
     try {
         const response = await axiosInstance.post('/api/Appointments',
-           appointmentInfo,
+            appointmentInfo,
             {
                 headers: {
                     'X-User-Id': 1,
@@ -90,6 +90,59 @@ export async function GetPatients() {
                 }
             }
 
+        );
+        return response.data
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function GetClinicalHistory(id) {
+    try {
+        const response = await axiosInstance.get(`/api/ClinicalHistory/${id}`,
+            {
+                headers: {
+                    'X-User-Id': 1,
+                    'X-User-Role': 'Admin'
+                }
+            }
+
+        );
+        return response.data
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function GetMedicalRecords(id) {
+    try {
+        const response = await axiosInstance.get(`/api/MedicalRecords/${id}`,
+            {
+                headers: {
+                    'X-User-Id': 1,
+                    'X-User-Role': 'Admin'
+                }
+            }
+
+        );
+        return response.data
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function DeleteAppointment(id) {
+    try {
+        const response = await axiosInstance.delete(`/api/Appointments/${id}`,
+            {
+                headers: {
+                    'X-User-id': 1,
+                    'X-User-role': 'Admin'
+                }
+            }
         );
         return response.data
 

@@ -53,7 +53,7 @@ export function Login() {
 
     return (
         <>
-            <div className="container d-flex justify-content-center">
+            <div className="container h-100 d-flex justify-content-center align-items-center">
                 <div className="row mt-3 ">
                     <div className="col-lg-12">
                         <div className="header">

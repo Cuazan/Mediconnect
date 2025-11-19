@@ -135,8 +135,8 @@ export function AddAppointMent() {
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
                     >
-                        <option value="1">Confirmada</option>
-                        <option value="2">Pendiente</option>
+                        <option value="1">Pendiente</option>
+                        <option value="2">Confirmada</option>
                         <option value="3">Cancelada</option>
                     </select>
                 </div>

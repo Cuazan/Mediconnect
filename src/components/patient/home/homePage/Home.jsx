@@ -9,9 +9,17 @@ export function Home() {
     return (
         <>
             <div className="container p-0">
-                <ComingAppointments/>
-                <MedicalInf/>
-                <Reminders/>
+                <ComingAppointments />
+                <div className="row">
+                    <div className="col-lg-6 col-md-12">
+
+                        <MedicalInf />
+                    </div>
+                    <div className="col-lg-6 col-md-12">
+                        
+                        <Reminders />
+                    </div>
+                </div>
             </div>
         </>
     )

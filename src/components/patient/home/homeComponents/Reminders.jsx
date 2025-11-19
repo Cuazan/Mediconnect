@@ -11,8 +11,8 @@ export function Reminders() {
                 <div className="card-body">
                     <div className=" reminder p-3 rounded-4 info-appointment">
                         <div className="summary">
-                            <h5>Nombre Doctor</h5>
-                            <p className="text-secondary mb-0">Cardilogia</p>
+                            <h5>Nombre Recordatorio</h5>
+                            <p className="text-secondary mb-0">Especialidad</p>
 
                         </div>
                     </div>

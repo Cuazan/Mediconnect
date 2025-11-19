@@ -6,7 +6,7 @@ export function DoctorHomePage(){
 
     return(
         <>
-        <div className="container border border-primary vh-100">
+        <div className="container vh-100">
             <DoctorComingAppointments/>
         </div>
         </>
